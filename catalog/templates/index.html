@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<body>
+  <!--<style>
+    body{
+        background: #D3D3D3;
+    }
+    footer {
+        position: absolute;
+        left: 0; bottom: 0;
+        padding: 10px;
+        background:#add8e6;
+        color:#add8e6;
+        width:100%;
+        font-style:italic;
+        text-align:center;
+    }-->
+</body>
+</style>
+<h1 class="ss" style="background-color: DimGray  ">___________________Local Library Home__________________</h1>
+<p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a tutorial example on the Mozilla Developer Network.</p>
+
+<h2>Dynamic content</h2>
+
+<p>The library has the following record counts:</p>
+<ul>
+<li><strong>Books:</strong> {{ num_books }}</li>
+<li><strong>Copies:</strong> {{ num_instances }}</li>
+<li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+<li><strong>Authors:</strong> {{ num_authors }}</li>
+</ul>
+<p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+<p>Бүгін: {% if weekday == 6 %} Жексенбі{% endif %}{% if weekday == 5 %} Сенбі{% endif %}{% if weekday == 4 %} Жұма{% endif %}{% if weekday == 3 %} Бейсенбі{% endif %}{% if weekday == 2 %} Сарсенбі{% endif %}{% if weekday == 1 %} Сейсенбі{% endif %}{% if weekday == 0 %} Дуйсенбі{% endif %}.</p>
+<p>Дата: {% if day < 10 %}0{{ day }}{% else %}{{ day }}{% endif %}/{% if month < 10 %}0{{ month }}{% else %}{{ month }}{% endif %}/{% if year < 10 %}0{{ year }}{% else %}{{ year }}{% endif %}</p>
+<p>Уақыт: {% if hour < 10 %}0{{ hour }}{% else %}{{ hour }}{% endif %}:{% if minute < 10 %}0{{ minute }}{% else %}{{ minute }}{% endif %}:{% if second < 10 %}0{{ second }}{% else %}{{ second }}{% endif %}</p>
+
+{% endblock %}
